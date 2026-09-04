@@ -20,6 +20,18 @@ Features:
 
 <!-- dash-content-end -->
 
+## Editing the HiPy website
+
+The main content and design can be updated in these locations:
+
+- **Upcoming events:** Edit [`src/data/events.json`](src/data/events.json). Each event needs a `title`, `description`, `location`, ISO-formatted `date`, and `eventbriteUrl`. Events in the past are automatically hidden and upcoming events are sorted by date.
+- **Homepage content:** Edit [`src/pages/index.astro`](src/pages/index.astro) to change the introductory copy, About section, event presentation, resource cards, or call to action.
+- **Resource activities:** Write the activities in [`src/pages/resources/personal-website-with-ai.md`](src/pages/resources/personal-website-with-ai.md) and [`src/pages/resources/analyse-data-with-ai.md`](src/pages/resources/analyse-data-with-ai.md). Keep the existing frontmatter at the top of each file.
+- **Colours and styling:** Edit [`src/styles/global.css`](src/styles/global.css). The core colour palette is defined as custom properties at the beginning of the file.
+- **Site title and description:** Edit [`src/consts.ts`](src/consts.ts). These values are used for browser and sharing metadata.
+
+The events currently included in `events.json` are illustrative placeholders. Replace their dates, descriptions, locations, and Eventbrite URLs before launching the site.
+
 ## Getting Started
 
 Outside of this repo, you can start a new project with this template using [C3](https://developers.cloudflare.com/pages/get-started/c3/) (the `create-cloudflare` CLI):

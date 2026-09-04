@@ -1,0 +1,10 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+const { frontmatter } = Astro.props;
+---
+<!doctype html><html lang="en"><head><BaseHead title={`${frontmatter.title} — HiPy`} description={frontmatter.description} /></head><body><Header /><main class="resource-page"><article><a class="back-link" href="/#resources">← Back to resources</a><p class="section-label">HiPy activity</p><h1>{frontmatter.title}</h1><p class="resource-intro">{frontmatter.description}</p><div class="resource-content"><slot /></div></article></main><Footer /></body></html>
+<style>
+	.resource-page{min-height:70vh;padding:100px 24px}.resource-page article{max-width:850px;margin:auto}.resource-page h1{font-size:clamp(3rem,7vw,6.5rem);margin:35px 0}.back-link{font-weight:700;text-underline-offset:5px}.resource-intro{font-size:1.4rem;max-width:650px}.resource-content{border-top:2px solid var(--ink);margin-top:60px;padding-top:40px}.resource-content :global(h2){font-size:2rem;letter-spacing:-.03em}.resource-content :global(p){max-width:680px}
+</style>
