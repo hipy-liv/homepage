@@ -2,11 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import events from '../data/events.json';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-const dateFormat = new Intl.DateTimeFormat('en-GB', { day: '2-digit', month: 'short' });
-const timeFormat = new Intl.DateTimeFormat('en-GB', { hour: '2-digit', minute: '2-digit' });
-const upcomingEvents = events.filter((event) => new Date(event.date) >= new Date()).sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
 ---
 <!doctype html>
 <html lang="en">
@@ -42,10 +38,11 @@ const upcomingEvents = events.filter((event) => new Date(event.date) >= new Date
 			</section>
 			<section class="events" id="events"><div class="section-shell">
 				<div class="section-heading"><div><p class="section-label light">02 — What's on</p><h2>Upcoming events<span>.</span></h2></div><p>Free, friendly sessions on campus.<br/>Come along and make something.</p></div>
-				<div class="event-list">{upcomingEvents.length ? upcomingEvents.map((event, index) => { const [day, month] = dateFormat.format(new Date(event.date)).split(' '); return <article class="event-card"><div class="event-date"><span>{day}</span>{month}</div><div class="event-info"><p class="event-number">EVENT {String(index + 1).padStart(2, '0')}</p><h3>{event.title}</h3><p>{event.description}</p></div><div class="event-meta"><p><span aria-hidden="true">⌖</span> {event.location}</p><p><span aria-hidden="true">◷</span> {timeFormat.format(new Date(event.date))}</p></div><a class="event-button" href={event.eventbriteUrl} target="_blank" rel="noreferrer">Book your spot <span aria-hidden="true">↗</span></a></article> }) : <p class="empty-state">We're planning the next HiPy get-together. Check back soon!</p>}</div>
+				<div class="event-list" data-event-list aria-live="polite" aria-busy="true"><p class="empty-state">Loading upcoming events…</p></div>
 			</div></section>
 			<section class="resources section-shell" id="resources"><div class="section-heading"><div><p class="section-label">03 — Have a go</p><h2>Learn at your pace<span>.</span></h2></div><p>Two friendly, practical activities.<br/>No jargon. No gatekeeping.</p></div><div class="resource-grid"><a class="resource-card coral" href="/resources/personal-website-with-ai"><div class="resource-icon">&lt;/&gt;</div><p>ACTIVITY 01</p><h3>Make a personal website using AI</h3><span class="resource-arrow">↗</span><small>BEGINNER · SELF-PACED</small></a><a class="resource-card violet" href="/resources/analyse-data-with-ai"><div class="resource-icon">⌁</div><p>ACTIVITY 02</p><h3>Analyse your data using AI</h3><span class="resource-arrow">↗</span><small>BEGINNER · SELF-PACED</small></a></div></section>
 			<section class="cta section-shell"><p class="section-label">You belong here</p><h2>Got curiosity?<br/><em>That's enough.</em></h2><p>Whether you've never written a line of code or you ship software every day, there's a seat for you at HiPy.</p><a class="button button-dark" href="#events">See what’s coming up <span>↘</span></a></section>
 		</main><Footer />
+		<script src="../scripts/events.ts"></script>
 	</body>
 </html>

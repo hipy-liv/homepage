@@ -9,7 +9,7 @@ This Astro site is the public homepage for HiPy, a grassroots coding community b
 - Write in clear, friendly British English.
 - Avoid jargon, gatekeeping, and assumptions about prior coding experience.
 - Emphasise practical learning, community, curiosity, and free access.
-- Keep event details in `src/data/events.json`; do not hard-code individual events into the page.
+- Keep event details in Firestore; do not hard-code individual events into the page.
 - Keep activity content in the Markdown files under `src/pages/resources/`.
 
 ## Design
@@ -23,4 +23,5 @@ This Astro site is the public homepage for HiPy, a grassroots coding community b
 
 - Run `npm run build` after site changes.
 - Check that event dates use ISO 8601 format and Eventbrite links use HTTPS.
+- Keep Firebase web configuration in environment variables and never add service-account credentials to the repository.
 - Do not commit generated `dist/` output or dependencies from `node_modules/`.
