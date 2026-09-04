@@ -1,76 +1,39 @@
-# Astro Starter Kit: Blog
+# HiPy homepage
 
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/cloudflare/templates/tree/main/astro-blog-starter-template)
+The public website for HiPy, a grassroots coding community based at the University of Liverpool. HiPy brings students, staff, and members of the public together to learn coding through free, friendly, hands-on events and activities.
 
-![Astro Template Preview](https://github.com/withastro/astro/assets/2244813/ff10799f-a816-4703-b967-c78997e8323d)
+## Editing the website
 
-<!-- dash-content-start -->
-
-Create a blog with Astro and deploy it on Cloudflare Workers as a [static website](https://developers.cloudflare.com/workers/static-assets/).
-
-Features:
-
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
-- ✅ Built-in Observability logging
-
-<!-- dash-content-end -->
-
-## Editing the HiPy website
-
-The main content and design can be updated in these locations:
-
-- **Upcoming events:** Edit [`src/data/events.json`](src/data/events.json). Each event needs a `title`, `description`, `location`, ISO-formatted `date`, and `eventbriteUrl`. Events in the past are automatically hidden and upcoming events are sorted by date.
-- **Homepage content:** Edit [`src/pages/index.astro`](src/pages/index.astro) to change the introductory copy, About section, event presentation, resource cards, or call to action.
+- **Upcoming events:** Edit [`src/data/events.json`](src/data/events.json). Each event needs a `title`, `description`, `location`, ISO-formatted `date`, and `eventbriteUrl`. Past events are automatically hidden and upcoming events are sorted by date.
+- **Homepage content:** Edit [`src/pages/index.astro`](src/pages/index.astro) to change the introduction, About section, event presentation, resource cards, or call to action.
 - **Resource activities:** Write the activities in [`src/pages/resources/personal-website-with-ai.md`](src/pages/resources/personal-website-with-ai.md) and [`src/pages/resources/analyse-data-with-ai.md`](src/pages/resources/analyse-data-with-ai.md). Keep the existing frontmatter at the top of each file.
 - **Colours and styling:** Edit [`src/styles/global.css`](src/styles/global.css). The core colour palette is defined as custom properties at the beginning of the file.
 - **Site title and description:** Edit [`src/consts.ts`](src/consts.ts). These values are used for browser and sharing metadata.
+- **Logo and icons:** The original artwork is stored at [`public/hipy-logo.png`](public/hipy-logo.png). Derived favicon and Apple touch icon files live alongside it in `public/`.
 
-The events currently included in `events.json` are illustrative placeholders. Replace their dates, descriptions, locations, and Eventbrite URLs before launching the site.
+The events currently included in `events.json` are illustrative placeholders. Replace their dates, descriptions, locations, and Eventbrite URLs before launch.
 
-## Getting Started
+## Local development
 
-Outside of this repo, you can start a new project with this template using [C3](https://developers.cloudflare.com/pages/get-started/c3/) (the `create-cloudflare` CLI):
+Install the dependencies and start the development server:
 
 ```bash
-npm create cloudflare@latest -- --template=cloudflare/templates/astro-blog-starter-template
+npm install
+npm run dev
 ```
 
-A live public deployment of this template is available at [https://astro-blog-starter-template.templates.workers.dev](https://astro-blog-starter-template.templates.workers.dev)
+The site will be available at `http://localhost:4321`.
 
-## 🚀 Project Structure
+## Commands
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+| Command | Action |
+| :-- | :-- |
+| `npm run dev` | Start the local development server |
+| `npm run build` | Build the production site in `dist/` |
+| `npm run preview` | Build and preview with Wrangler |
+| `npm run check` | Build, type-check, and validate the Cloudflare deployment |
+| `npm run deploy` | Deploy to Cloudflare |
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Technology
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                           | Action                                           |
-| :-------------------------------- | :----------------------------------------------- |
-| `npm install`                     | Installs dependencies                            |
-| `npm run dev`                     | Starts local dev server at `localhost:4321`      |
-| `npm run build`                   | Build your production site to `./dist/`          |
-| `npm run preview`                 | Preview your build locally, before deploying     |
-| `npm run astro ...`               | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help`         | Get help using the Astro CLI                     |
-| `npm run build && npm run deploy` | Deploy your production site to Cloudflare        |
-| `npm wrangler tail`               | View real-time logs for all Workers              |
-
-## 👀 Want to learn more?
-
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
-## Credit
-
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+The site uses [Astro](https://astro.build/) and is configured for deployment to [Cloudflare Workers](https://developers.cloudflare.com/workers/).
