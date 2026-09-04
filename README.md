@@ -9,7 +9,7 @@ The public website for HiPy, a grassroots coding community based at the Universi
 - **Resource activities:** Write the activities in [`src/pages/resources/personal-website-with-ai.md`](src/pages/resources/personal-website-with-ai.md) and [`src/pages/resources/analyse-data-with-ai.md`](src/pages/resources/analyse-data-with-ai.md). Keep the existing frontmatter at the top of each file.
 - **Colours and styling:** Edit [`src/styles/global.css`](src/styles/global.css). The core colour palette is defined as custom properties at the beginning of the file.
 - **Site title and description:** Edit [`src/consts.ts`](src/consts.ts). These values are used for browser and sharing metadata.
-- **Logo and icons:** The original artwork is stored at [`public/hipy-logo.png`](public/hipy-logo.png). Derived favicon and Apple touch icon files live alongside it in `public/`.
+- **Logo and icons:** The stacked HiPy wordmark is stored at [`public/hipy-logo.png`](public/hipy-logo.png). Derived favicon and Apple touch icon files live alongside it in `public/`.
 
 The events currently included in `events.json` are illustrative placeholders. Replace their dates, descriptions, locations, and Eventbrite URLs before launch.
 

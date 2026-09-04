@@ -14,7 +14,7 @@ This Astro site is the public homepage for HiPy, a grassroots coding community b
 
 ## Design
 
-- Preserve the original HiPy logo in `public/hipy-logo.png` and use it consistently.
+- Preserve the stacked Atkinson Bold HiPy wordmark in `public/hipy-logo.png` and use it consistently.
 - Retain the warm cream, near-black, lime, coral, and violet visual system.
 - Maintain keyboard accessibility, visible focus states, semantic headings, and responsive layouts.
 - Prefer lightweight Astro and CSS solutions over adding client-side frameworks or dependencies.
