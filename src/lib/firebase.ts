@@ -1,19 +1,32 @@
 import { getApp, getApps, initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore/lite';
 
-const firebaseConfig = {
-	apiKey: import.meta.env.PUBLIC_FIREBASE_API_KEY,
-	authDomain: import.meta.env.PUBLIC_FIREBASE_AUTH_DOMAIN,
-	projectId: import.meta.env.PUBLIC_FIREBASE_PROJECT_ID,
-	storageBucket: import.meta.env.PUBLIC_FIREBASE_STORAGE_BUCKET,
-	messagingSenderId: import.meta.env.PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
-	appId: import.meta.env.PUBLIC_FIREBASE_APP_ID,
-};
+export interface FirebaseConfig {
+	apiKey?: string;
+	authDomain?: string;
+	projectId?: string;
+	storageBucket?: string;
+	messagingSenderId?: string;
+	appId?: string;
+	measurementId?: string;
+	eventsCollection?: string;
+}
 
-export const isFirebaseConfigured = Boolean(
-	firebaseConfig.apiKey && firebaseConfig.projectId && firebaseConfig.appId,
-);
+let db: ReturnType<typeof getFirestore> | null = null;
+let eventsCollection = 'events';
 
-export const db = isFirebaseConfigured
-	? getFirestore(getApps().length ? getApp() : initializeApp(firebaseConfig))
-	: null;
+export function configureFirebase(config: FirebaseConfig): boolean {
+	if (!config.apiKey || !config.projectId || !config.appId) return false;
+	eventsCollection = config.eventsCollection || 'events';
+	const app = getApps().length ? getApp() : initializeApp(config);
+	db = getFirestore(app);
+	return true;
+}
+
+export function getFirebaseDb() {
+	return db;
+}
+
+export function getFirebaseEventsCollection() {
+	return eventsCollection;
+}

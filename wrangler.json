@@ -7,6 +7,16 @@
 		"directory": "./dist",
 		"binding": "ASSETS"
 	},
+	"vars": {
+		"PUBLIC_FIREBASE_API_KEY": "AIzaSyBLDz6A9HUJXE8xv7JsNVsyIf8mvw4ZoPs",
+		"PUBLIC_FIREBASE_AUTH_DOMAIN": "homepage-a8bf8.firebaseapp.com",
+		"PUBLIC_FIREBASE_PROJECT_ID": "homepage-a8bf8",
+		"PUBLIC_FIREBASE_STORAGE_BUCKET": "homepage-a8bf8.firebasestorage.app",
+		"PUBLIC_FIREBASE_MESSAGING_SENDER_ID": "959644021364",
+		"PUBLIC_FIREBASE_APP_ID": "1:959644021364:web:97d6eb09dc2b574c3ed721",
+		"PUBLIC_FIREBASE_MEASUREMENT_ID": "G-7GHFCJ60E3",
+		"PUBLIC_FIREBASE_EVENTS_COLLECTION": "events"
+	},
 	"observability": {
 		"enabled": true
 	},

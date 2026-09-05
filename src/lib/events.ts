@@ -1,5 +1,5 @@
 import { collection, getDocs, type DocumentData, type Timestamp } from 'firebase/firestore/lite';
-import { db } from './firebase';
+import { getFirebaseDb, getFirebaseEventsCollection } from './firebase';
 
 export interface HiPyEvent {
 	id: string;
@@ -43,10 +43,10 @@ function parseEvent(id: string, data: DocumentData): HiPyEvent | null {
 }
 
 export async function getUpcomingEvents(): Promise<HiPyEvent[]> {
+	const db = getFirebaseDb();
 	if (!db) throw new Error('Firebase is not configured.');
 
-	const collectionName = import.meta.env.PUBLIC_FIREBASE_EVENTS_COLLECTION || 'events';
-	const snapshot = await getDocs(collection(db, collectionName));
+	const snapshot = await getDocs(collection(db, getFirebaseEventsCollection()));
 	const now = new Date();
 
 	return snapshot.docs
