@@ -168,7 +168,39 @@ If it reports an error, copy the error into Copilot Chat and ask: `Explain this 
 
 ## 5. Publish with GitHub Pages
 
-First, update `astro.config.mjs`, replacing `YOUR-USERNAME` and `YOUR-REPOSITORY` with your GitHub username and repository name. Your finished address will be `https://YOUR-USERNAME.github.io/YOUR-REPOSITORY/`. The `base` setting makes images and links work at that address.
+Use Copilot to deploy your site. Paste this exact message:
+
+```text
+Set up GitHub Pages deployment for my Astro site. First, update astro.config.mjs with the correct site and base values for my repository. Then create the file .github/workflows/deploy.yml with a GitHub Actions workflow that builds and deploys my Astro site to GitHub Pages on push to main. Use the official withastro/action@v6 for building and actions/deploy-pages@v5 for deployment. Do not push the changes yet - wait for my approval and explain what you will do before making any changes.
+```
+
+Copilot should:
+- Update `astro.config.mjs` with your GitHub username and repository name
+- Create `.github/workflows/deploy.yml` with the deployment workflow
+- Explain each change before making it
+
+<aside class="resource-callout build-next"><h3>If Copilot cannot push for you</h3><p>After approving the changes, Copilot may not be able to push to GitHub. If so, complete these steps manually:</p>
+
+<ol>
+<li>In Codespaces, open the <strong>Source Control</strong> panel (git icon in the left sidebar)</li>
+<li>Stage all changes using the <strong>+</strong> button</li>
+<li>Write a commit message like <code>Publish my personal site</code></li>
+<li>Select <strong>Commit</strong></li>
+<li>Select <strong>Sync Changes</strong> or <strong>Push</strong></li>
+</ol>
+
+<p>If you see a permission error, you may need to run <code>git push origin main</code> in the terminal.</p>
+</aside>
+
+Before deploying, open your repository on GitHub in another browser tab. Go to **Settings** → **Pages**, then under **Build and deployment** choose **GitHub Actions** as the source. This prepares GitHub Pages to accept the deployment.
+
+Once your changes are pushed, open the **Actions** tab on GitHub, wait for the workflow to finish, then follow its deployment link. This is your public website address you can share.
+
+If the workflow fails, check that **Settings** → **Pages** still shows **GitHub Actions** as its source. You can also ask Copilot: `Explain why my GitHub Pages deployment failed and suggest the smallest fix.`
+
+<details><summary>Prefer to do it manually?</summary>
+
+Update `astro.config.mjs` with your GitHub username and repository name:
 
 ```js
 import { defineConfig } from 'astro/config';
@@ -179,17 +211,9 @@ export default defineConfig({
 });
 ```
 
-If you deliberately named the repository `YOUR-USERNAME.github.io`, it is a special profile-site address. Remove the `base` line in that case.
+If your repository is named `YOUR-USERNAME.github.io`, remove the `base` line.
 
-Before you create the deployment workflow or make your first commit, open your repository on GitHub in another browser tab. Go to **Settings** → **Pages**, then under **Build and deployment** choose **GitHub Actions** as the source. This prepares GitHub Pages to accept the deployment when you push your workflow.
-
-Now create the deployment file in Codespaces. This is a set of instructions for GitHub Actions — a fresh online computer that will build and publish your site whenever you push an update.
-
-1. In the left-hand **Explorer**, make sure you can see the top-level folder for your website.
-2. Select the **New Folder** icon. Name the folder `.github` — include the full stop at the beginning.
-3. Select the new `.github` folder, then select **New Folder** again. Name this folder `workflows`.
-4. Select the new `workflows` folder, then select **New File**. Name the file `deploy.yml`.
-5. Open `deploy.yml`, copy the entire block below, paste it into the empty file, then save with <kbd>Ctrl</kbd> + <kbd>S</kbd> (or <kbd>Cmd</kbd> + <kbd>S</kbd> on a Mac). Do not change the spacing at the start of the lines: YAML uses it to understand the workflow.
+Create `.github/workflows/deploy.yml` with:
 
 ```yaml
 name: Deploy Astro site to GitHub Pages
@@ -224,22 +248,8 @@ jobs:
         uses: actions/deploy-pages@v5
 ```
 
-You do not need to memorise this code. It tells GitHub to:
-
-- run when you push to the `main` branch (or when you start it manually);
-- download your repository onto a temporary Linux computer;
-- let Astro install dependencies, build the website, and upload the finished `dist` files;
-- publish those files through GitHub Pages.
-
-If you prefer Copilot to create the file, use this exact request instead: `Create the folders .github/workflows and the file .github/workflows/deploy.yml. Paste the GitHub Pages workflow from this activity exactly as written. Do not change any other files.` Check that the resulting file matches the block above before you continue.
-
-Commit and push your files using the Source Control panel:
-
-1. Select **Source Control** in the left sidebar and stage all changes using the **+** button.
-2. Write a message such as `Publish my personal site`, then select **Commit**.
-3. Select **Sync Changes** or **Push** when VS Code offers it.
-
-On GitHub, open the **Actions** tab, wait for the workflow to finish, then follow its deployment link. This is the public address you can share. If the workflow fails, check first that **Settings** → **Pages** still shows **GitHub Actions** as its source.
+Then commit and push using the Source Control panel.
+</details>
 
 [GitHub's Pages workflow guide](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages) explains these steps and permissions.
 
