@@ -1,0 +1,107 @@
+---
+interface Props {
+  objectives: string[];
+}
+
+const { objectives } = Astro.props;
+---
+
+<aside class="progress-tracker" aria-label="Your activity progress">
+  <h2 class="tracker-title">Your progress</h2>
+  <p class="tracker-status" aria-live="polite" aria-atomic="true">0 of {objectives.length} complete</p>
+  <ul class="tracker-list">
+    {objectives.map((objective, index) => (
+      <li class="tracker-item">
+        <input type="checkbox" id={`objective-${index}`} class="tracker-checkbox" />
+        <label for={`objective-${index}`} class="tracker-label">{objective}</label>
+      </li>
+    ))}
+  </ul>
+</aside>
+
+<style>
+  .progress-tracker {
+    position: sticky;
+    top: 20px;
+    max-height: calc(100dvh - 40px);
+    overflow-y: auto;
+    z-index: 2;
+    align-self: start;
+    background: var(--cream);
+    border: 2px solid var(--ink);
+    padding: 20px;
+    height: fit-content;
+    box-shadow: 5px 5px 0 var(--violet);
+  }
+
+  .tracker-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0 0 15px;
+    color: var(--ink);
+  }
+
+  .tracker-status { font-weight: 700; margin: 0 0 8px; }
+  .tracker-checkbox:focus-visible { outline: 3px solid var(--violet); outline-offset: 3px; }
+  .tracker-checkbox:checked + .tracker-label { text-decoration: line-through; }
+
+  .tracker-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .tracker-item {
+    margin: 12px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .tracker-checkbox {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    margin-top: 3px;
+    accent-color: var(--lime);
+    cursor: pointer;
+  }
+
+  .tracker-label {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: var(--ink);
+    cursor: pointer;
+  }
+
+  .tracker-checkbox:checked {
+    background-color: var(--lime);
+    border-color: var(--lime);
+  }
+
+  @media (max-width: 850px) {
+    .progress-tracker {
+      top: 8px;
+      max-height: 35dvh;
+      padding: 14px;
+      width: 100%;
+      margin: 0;
+      max-width: 100%;
+      box-shadow: none;
+    }
+    .tracker-title { margin-bottom: 8px; }
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.progress-tracker').forEach((tracker) => {
+    const checkboxes = Array.from(tracker.querySelectorAll<HTMLInputElement>('input[type="checkbox"]'));
+    const update = () => {
+      const completed = checkboxes.filter((checkbox) => checkbox.checked).length;
+      const status = tracker.querySelector('.tracker-status');
+      if (status) status.textContent = `${completed} of ${checkboxes.length} complete`;
+    };
+    tracker.addEventListener('change', update);
+    update();
+  });
+</script>

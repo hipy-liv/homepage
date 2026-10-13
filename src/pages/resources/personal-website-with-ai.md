@@ -2,6 +2,11 @@
 layout: ../../layouts/ResourceLayout.astro
 title: Make a personal website using AI
 description: Plan, build and publish an Astro personal website with GitHub Codespaces and Copilot — no coding experience needed.
+objectives:
+  - Set up GitHub Codespaces for my project
+  - Asked an Agent to create my personal website
+  - Seen the website by asking my Agent to create a preview
+  - Deployed my Website to GitHub Pages using my Agent
 ---
 
 <div class="activity-meta" aria-label="Activity details"><span>2 hours</span><span>Beginner friendly</span><span>Bring a laptop</span></div>
