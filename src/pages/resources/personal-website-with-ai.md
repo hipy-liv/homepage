@@ -30,9 +30,15 @@ You will be able to:
 
 <ol class="time-plan"><li><strong>0–30 minutes — Set up</strong> Create a GitHub account, repository, Codespace and Astro project.</li><li><strong>30–45 minutes — Plan</strong> Let Copilot ask questions about your site before it writes code.</li><li><strong>45–85 minutes — Build</strong> Create and personalise your page.</li><li><strong>85–105 minutes — Preview and check</strong> See it through your Codespace app link and run a production build.</li><li><strong>105–120 minutes — Publish</strong> Deploy with GitHub Pages and share your link.</li></ol>
 
-<aside class="resource-callout"><h3>Helpful before the session</h3><p>If you can, create and verify your GitHub account before the session. Account verification and starting a Codespace can take a little while, so do not worry if publishing becomes a stretch goal rather than a finish-line task.</p></aside>
+### Helpful before the session
+
+If you can, create and verify your GitHub account before the session. Account verification and starting a Codespace can take a little while, so do not worry if publishing becomes a stretch goal rather than a finish-line task.
+
+Green boxes explain useful concepts; red boxes contain warnings or help when something goes wrong. Select a box heading to open or close it.
 
 ## 1. Set up GitHub and your project
+
+<details class="resource-callout information"><summary><span class="callout-label">Useful background</span><span class="callout-title">What are Git and GitHub?</span></summary><p><strong>Git</strong> records changes to your project files, so you can see what changed and return to an earlier version. A <strong>commit</strong> is a saved checkpoint with a short message describing the changes. <strong>GitHub</strong> stores Git projects online and helps people work together. A <strong>repository</strong> holds your project files and their history. To <strong>push</strong> means to send your saved commits to GitHub.</p></details>
 
 GitHub is a place to store your project online. A **repository** is the project folder, including its history. If you do not have an account, visit [GitHub](https://github.com/signup), choose a username you are happy to share, and verify your email address.
 
@@ -44,7 +50,9 @@ GitHub Copilot has a free plan for many personal accounts. In Codespaces, sign i
 
 A **Codespace** is a development workspace running in the cloud. It opens a browser version of VS Code, so you do not need to install an editor today.
 
-<aside class="resource-callout"><h3>Cannot create a Codespace?</h3><p>Check that you are using your own public repository and have remaining Codespaces usage. If the Codespaces tab is missing, blocked by a school or work account, or asks for billing you cannot use, pair with someone, ask a helper for a shared setup, or use VS Code on your own computer instead. You can still complete the same Astro steps locally.</p></aside>
+<details class="resource-callout caution"><summary><span class="callout-label">Warning or troubleshooting</span><span class="callout-title">Cannot create a Codespace?</span></summary><p>Check that you are using your own public repository and have remaining Codespaces usage. If the Codespaces tab is missing, blocked by a school or work account, or asks for billing you cannot use, pair with someone, ask a helper for a shared setup, or use VS Code on your own computer instead. You can still complete the same Astro steps locally.</p></details>
+
+<details class="resource-callout information"><summary><span class="callout-label">Useful background</span><span class="callout-title">What is Astro?</span></summary><p><strong>Astro</strong> is a tool for building websites. A <strong>page</strong> is what someone sees at a website address. A <strong>component</strong> is a reusable part of a page, such as a header or a project card. Astro combines these files into a website you can publish. <strong>HTML</strong> gives the content its structure, while <strong>CSS</strong> controls how it looks, including colours, spacing and fonts.</p></details>
 
 In the Codespaces terminal, create the website with [Astro](https://astro.build/). Astro is a tool for building fast websites from small page and component files. Run the command below. In the setup wizard, choose the **minimal** template, choose **No** for TypeScript if you are new to coding, choose **Yes** to install dependencies, and choose **No** if it asks to initialise Git — your GitHub repository already has Git.
 
@@ -53,6 +61,8 @@ npm create astro@latest .
 ```
 
 ## 2. Plan before you build
+
+<details class="resource-callout information"><summary><span class="callout-label">Useful background</span><span class="callout-title">What is layout? Useful design terms</span></summary><p><strong>Layout</strong> is how you arrange words, images and other elements on a page. It helps visitors understand what matters and where to go next. These terms can help you describe the design you want:</p><ul><li>A <strong>hero section</strong> is the prominent introduction near the top of a page. It often combines a headline, a short introduction and an image.</li><li>A <strong>call to action (CTA)</strong> — sometimes described as a “call to arms” — invites visitors to take a next step, such as “View my projects” or “Get in touch”. Give it a clear label and use a link or button that matches what it does.</li><li><strong>Visual hierarchy</strong> means making the most important information stand out through size, weight, colour and position.</li><li><strong>White space</strong> is the breathing room between elements. It can be any colour and makes a page easier to read.</li><li>A <strong>grid</strong> arranges content into rows and columns. <strong>Cards</strong> group related information, such as a project image, title and description.</li><li><strong>Alignment</strong> lines up elements along a shared edge. Consistent spacing and alignment make a page feel organised.</li><li><strong>Responsive design</strong> lets the layout adapt to the screen: for example, three columns of project cards on a laptop can become one column on a phone.</li></ul><p>Try asking Copilot: “Create a hero section with a short introduction and a clear call to action linking to my projects. Use plenty of white space and stack the project cards on small screens.”</p></details>
 
 Open the Copilot Chat view. Select **Plan** in the mode picker, or start your message with `/plan`. Plan mode should research and ask questions, but not change your files until you have reviewed the plan. [Read GitHub's guide to planning with agents.](https://code.visualstudio.com/docs/agents/run/planning)
 
@@ -73,19 +83,23 @@ After I answer, give me a short plan for an Astro website. Include the Astro pag
 
 Read the plan. Change anything that does not feel like you. When you are happy, select **Start Implementation** or switch to **Agent** mode.
 
-<aside class="resource-callout build-next"><h3>Now tell Copilot to build your site</h3><p>Paste this exact message:</p>
+### Now tell Copilot to build your site
+
+Paste this exact message:
 
 ```text
 Implement the approved plan. Explain each change briefly as you make it. When the first version is ready, run the Astro development server and tell me when the browser preview link is available.
 ```
 
-<p>Copilot should build the site and run it locally in the Codespace. Keep an eye out for a browser notification or a link in the terminal asking you to open the preview. Select it: this is the live version of your website while you work.</p></aside>
+Copilot should build the site and run it locally in the Codespace. Keep an eye out for a browser notification or a link in the terminal asking you to open the preview. Select it: this is the live version of your website while you work.
 
-<aside class="resource-callout caution"><h3>About “allow all”</h3><p>After switching to Agent mode, use the permission-level picker beside the chat input and choose <strong>Allow all</strong> for this session if you want Copilot to edit files and run commands without repeatedly asking. Do not turn on global auto-approval: that applies to every workspace. Only use session-level Allow all in your own new Codespace, read changes before committing them, never put passwords or API keys in chat or files, and do not use it in an unfamiliar or sensitive project. A school or work-managed account may disable this option.</p></aside>
+<details class="resource-callout caution"><summary><span class="callout-label">Warning or troubleshooting</span><span class="callout-title">About “allow all”</span></summary><p>After switching to Agent mode, use the permission-level picker beside the chat input and choose <strong>Allow all</strong> for this session if you want Copilot to edit files and run commands without repeatedly asking. Do not turn on global auto-approval: that applies to every workspace. Only use session-level Allow all in your own new Codespace, read changes before committing them, never put passwords or API keys in chat or files, and do not use it in an unfamiliar or sensitive project. A school or work-managed account may disable this option.</p></details>
 
 ## 3. Make changes and watch them live
 
 Once Copilot has built the first version and you have opened the preview link, keep it open in another browser tab. This is your **live preview**: save a change in Codespaces, then refresh the preview to see the result. Keep making small, deliberate changes — this is how the page becomes yours.
+
+<details class="resource-callout information"><summary><span class="callout-label">Useful background</span><span class="callout-title">What are website elements?</span></summary><p>A page is made from parts with different jobs:</p><ul><li>The <strong>header</strong> sits near the top and usually introduces the site or contains its name.</li><li><strong>Navigation</strong> provides links to other pages or sections.</li><li>The <strong>main content</strong> contains what visitors came to read or do, organised into sections such as an introduction, interests and projects.</li><li><strong>Headings</strong> describe those sections and help people find their way around.</li><li>The <strong>footer</strong> sits near the bottom and often contains contact links or credits.</li><li><strong>Links</strong> take people somewhere; <strong>buttons</strong> perform an action, such as opening a menu.</li></ul><p>You can use these names when asking Copilot to change a particular part of your page.</p></details>
 
 Start with the content. Tell Copilot what is true about you, rather than accepting placeholder text:
 
@@ -184,7 +198,7 @@ Copilot should:
 - Create `.github/workflows/deploy.yml` with the deployment workflow
 - Explain each change before making it
 
-<aside class="resource-callout build-next"><h3>If Copilot cannot push for you</h3><p>After approving the changes, Copilot may not be able to push to GitHub. If so, complete these steps manually:</p>
+<details class="resource-callout caution"><summary><span class="callout-label">Warning or troubleshooting</span><span class="callout-title">If Copilot cannot push for you</span></summary><p>After approving the changes, Copilot may not be able to push to GitHub. If so, complete these steps manually:</p>
 
 <ol>
 <li>In Codespaces, open the <strong>Source Control</strong> panel (git icon in the left sidebar)</li>
@@ -195,7 +209,7 @@ Copilot should:
 </ol>
 
 <p>If you see a permission error, you may need to run <code>git push origin main</code> in the terminal.</p>
-</aside>
+</details>
 
 Before deploying, open your repository on GitHub in another browser tab. Go to **Settings** → **Pages**, then under **Build and deployment** choose **GitHub Actions** as the source. This prepares GitHub Pages to accept the deployment.
 
@@ -260,6 +274,6 @@ Then commit and push using the Source Control panel.
 
 ## Keep going
 
-<aside class="resource-callout"><h3>Before you share</h3><p>GitHub Pages makes this website public. Do not publish your phone number, home address, passwords, API keys or an email address you do not want strangers to find. Use your own images, or images you are allowed to reuse, and credit them where needed.</p></aside>
+<details class="resource-callout caution"><summary><span class="callout-label">Warning or troubleshooting</span><span class="callout-title">Before you share</span></summary><p>GitHub Pages makes this website public. Do not publish your phone number, home address, passwords, API keys or an email address you do not want strangers to find. Use your own images, or images you are allowed to reuse, and credit them where needed.</p></details>
 
 Your Codespace is a great place to start, but you can also work on your own computer. Download [Visual Studio Code](https://code.visualstudio.com/), clone this Astro repository, and sign in to GitHub Copilot. You can also use another agent-based AI, such as Codex. Whatever tool you use, keep the same habit: describe your idea, ask questions, review the plan, then build and check the result.
