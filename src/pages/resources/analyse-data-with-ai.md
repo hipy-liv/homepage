@@ -39,7 +39,12 @@ Your project needs a home, and on GitHub that home is called a **repository**. L
 1. Log in to [GitHub](https://github.com), creating a free account first if you need one.
 2. Select **New repository**.
 3. Give it a name like `my-data-analysis`, choose **Public**, and leave it empty. Do not tick **Add a README**, **Add .gitignore** or **Choose a licence**. Then select **Create repository**.
+
+![GitHub’s new repository form.](/images/resources/analyse-data-with-ai/make_new_repo.png)
+
 4. On your new repository's page, select **Code**, then the **Codespaces** tab, then **Create codespace on main**.
+
+![GitHub’s Codespaces tab showing the option to create a new Codespace.](/images/resources/analyse-data-with-ai/make_new_codespace.png)
 
 That opens a **Codespace**: a development workspace running in the cloud, so nothing is installed on your own computer. The first one can take a minute or two to start.
 
