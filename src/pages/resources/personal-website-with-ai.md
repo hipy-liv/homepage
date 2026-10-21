@@ -40,9 +40,10 @@ Your project needs a home, and on GitHub that home is called a **repository**. L
 
 1. Log in to [GitHub](https://github.com), creating a free account first if you need one.
 2. Select **New repository**.
-3. Give it a name like `my-personal-website`, choose **Public**, and leave it empty. Do not tick **Add a README**, **Add .gitignore** or **Choose a licence**. Then select **Create repository**.
 
 ![GitHub’s new repository form.](/images/resources/personal-website-with-ai/make_new_repo.png)
+
+3. Give it a name like `my-personal-website`, choose **Public**, and leave it empty. Do not tick **Add a README**, **Add .gitignore** or **Choose a licence**. Then select **Create repository**.
 
 4. On your new repository's page, select **Code**, then the **Codespaces** tab, then **Create codespace on main**.
 
@@ -293,3 +294,31 @@ Then commit and push using the Source Control panel.
 <details class="resource-callout caution"><summary><span class="callout-label">Warning or troubleshooting</span><span class="callout-title">Before you share</span></summary><p>GitHub Pages makes this website public. Do not publish your phone number, home address, passwords, API keys or an email address you do not want strangers to find. Use your own images, or images you are allowed to reuse, and credit them where needed.</p></details>
 
 Your Codespace is a great place to start, but you can also work on your own computer. Download [Visual Studio Code](https://code.visualstudio.com/), clone this Astro repository, and sign in to GitHub Copilot. You can also use another agent-based AI, such as Codex. Whatever tool you use, keep the same habit: describe your idea, ask questions, review the plan, then build and check the result.
+
+## Using AI thoughtfully: people and the environment
+
+AI can help more people build a website and express their ideas. Your choices about privacy, accessibility and the content you publish still affect other people.
+
+### Social impacts and what we can do
+
+AI tools can support learning, but they also raise questions about privacy, bias, unequal access and becoming dependent on answers we do not understand. These are central concerns in [UNESCO’s guidance on generative AI in education and research](https://www.unesco.org/en/articles/guidance-generative-ai-education-and-research).
+
+- **Protect privacy.** Use public practice data and invented examples; do not upload personal or confidential information. Check what your tool stores and how it uses your inputs.
+- **Build for different people.** Check keyboard navigation, readable contrast and useful image descriptions. Try your site on a small screen and ask someone else to use it; an AI claim that a page is accessible is not a substitute for checking.
+- **Take responsibility for published content.** Check facts and links, avoid stereotypes, and use images and text you have permission to share. Credit sources and explain where AI helped.
+- **Keep learning and include others.** Ask for explanations and try a small change yourself. Share what you learn, offer the manual alternatives in this guide and avoid making a paid AI subscription a requirement for taking part.
+
+### Environmental impacts and what we can do
+
+Training and running AI models use electricity. Their infrastructure also uses water and materials, and creates emissions and electronic waste; [UNEP describes these impacts across the AI lifecycle](https://wedocs.unep.org/handle/20.500.11822/46288). The impact of an individual request varies with the model, task and infrastructure; a single footprint figure would not reliably describe this activity.
+
+These practical choices can help limit unnecessary computing:
+
+- **Use AI where it helps.** A direct edit, documentation lookup or existing script may be enough for a simple task.
+- **Keep requests focused.** Give the relevant context, ask for a small change and review it before requesting more. Set a clear stopping point for an agent so it does not keep retrying or generating alternatives without a purpose.
+- **Reuse useful work.** Save working code and explanations rather than repeatedly generating them. Choose a smaller model when it can do the job reliably; check the result.
+- **Close unused cloud workspaces.** Stop your Codespace or other cloud session when you finish, and keep using your existing computer where it meets your needs.
+
+Individual choices are only part of the picture; providers and institutions also need to measure and reduce energy, water and material use. When you have a choice, look for published environmental reporting rather than assuming a service is sustainable.
+
+**Before you finish:** identify one social risk and one environmental impact in your project. What change could you make to reduce each?
