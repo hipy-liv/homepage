@@ -7,6 +7,8 @@ const { frontmatter } = Astro.props;
 ---
 <!doctype html><html lang="en"><head><BaseHead title={`${frontmatter.title} — HiPy`} description={frontmatter.description} /></head><body class="resource-body"><Header /><main class="resource-page"><article><a class="back-link" href="/#resources">← Back to resources</a><p class="section-label">HiPy activity</p><h1>{frontmatter.title}</h1><p class="resource-intro">{frontmatter.description}</p><div class:list={["resource-layout", { "has-tracker": frontmatter.objectives?.length }]}>{frontmatter.objectives && <ProgressTracker objectives={frontmatter.objectives} />}<div class="resource-content"><slot /></div></div></article></main><Footer /></body></html>
 <style>
+	.resource-content :global(.resource-callout.reflection){background:var(--violet);color:white}
+	.resource-content :global(.reflection h2){margin-top:0}
 	.resource-content :global(img){display:block;max-width:100%;height:auto;margin:24px auto;border:1px solid var(--line);border-radius:8px}
 	:global(body.resource-body){overflow-x:clip}
 
