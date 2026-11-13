@@ -43,7 +43,7 @@ Your project needs a home, and on GitHub that home is called a **repository**. L
 
 ![GitHub’s new repository form.](/images/resources/personal-website-with-ai/make_new_repo.png)
 
-3. Give it a name like `my-personal-website`, choose **Public**, and leave it empty. Do not tick **Add a README**, **Add .gitignore** or **Choose a licence**. Then select **Create repository**.
+3. Give it a name like `my-personal-website` and choose **Public**. Tick **Add a README**, but leave **Add .gitignore** and **Choose a licence** unticked. Then select **Create repository**.
 
 4. On your new repository's page, select **Code**, then the **Codespaces** tab, then **Create codespace on main**.
 
@@ -67,6 +67,14 @@ GitHub Copilot is an AI "agent" that can help us write code. There's a free plan
 
 Copilot will often ask before it runs a command or opens a browser window. That's normal: it isn't allowed to do certain steps on its own, for safety.
 
+That also means a lot of clicking. For this activity, let Copilot get on with the work: select the **Copilot** button at the bottom of the window, open **Permissions**, and choose **Allow all**. Copilot can then edit files and run commands without asking after each one, so you can spend your time deciding what you want your site to say and look like rather than approving every small step. You can switch back to **Assisted permissions** at any time.
+
+![The Copilot permissions menu, with Allow all highlighted.](/images/resources/personal-website-with-ai/allow_all.png)
+
+<details class="resource-callout information"><summary><span class="callout-label">Useful background</span><span class="callout-title">Why is “allow all” safe here?</span></summary><p>Because your Codespace is not your computer. It is a temporary workspace in the cloud that holds only the files in this one repository: no photos, documents, emails, saved passwords or other projects. Nothing it does can reach your own machine, and anything you have already pushed to GitHub stays safe. If a Codespace does get into a mess, you can delete it and start a fresh one in a couple of minutes. That makes it a reasonable place to give an agent a free hand for an afternoon.</p></details>
+
+<details class="resource-callout caution"><summary><span class="callout-label">Warning or troubleshooting</span><span class="callout-title">Why “allow all” is not safe on your own computer</span></summary><p><strong>Allow all</strong> means exactly that: Copilot can run any command and change any file it can reach, without asking you first. On your own computer, that reach includes your documents, photos, emails, saved passwords and other projects. A wrong command could delete or overwrite them, install unwanted software, or send files somewhere else, and it is often hard to undo. So only use session-level <strong>Allow all</strong> in a new Codespace, and never turn on global auto-approval, which would apply to every workspace you open. Read changes before you commit them, never put passwords or API keys in chat or files, and do not use it in an unfamiliar or sensitive project. A school or work-managed account may disable this option.</p></details>
+
 <details class="resource-callout caution"><summary><span class="callout-label">Warning or troubleshooting</span><span class="callout-title">Cannot create a Codespace?</span></summary><p>Check that you are using your own public repository and have remaining Codespaces usage. If the Codespaces tab is missing, blocked by a school or work account, or asks for billing you cannot use, pair with someone, ask a helper for a shared setup, or use VS Code on your own computer instead. You can still complete the same steps locally.</p></details>
 
 Now ask Copilot to set up [Astro](https://astro.build/), the tool your website will be built with. Paste this into Copilot Chat:
@@ -76,8 +84,6 @@ Set up a new Astro project in this workspace using the minimal template. Choose 
 ```
 
 <details class="resource-callout information"><summary><span class="callout-label">Useful background</span><span class="callout-title">What is Astro?</span></summary><p><strong>Astro</strong> is a tool for building websites. A <strong>page</strong> is what someone sees at a website address. A <strong>component</strong> is a reusable part of a page, such as a header or a project card. Astro combines these files into a website you can publish. <strong>HTML</strong> gives the content its structure, while <strong>CSS</strong> controls how it looks, including colours, spacing and fonts.</p></details>
-
-<details class="resource-callout caution"><summary><span class="callout-label">Warning or troubleshooting</span><span class="callout-title">About “allow all”</span></summary><p>After switching to Agent mode, use the permission-level picker beside the chat input and choose <strong>Allow all</strong> for this session if you want Copilot to edit files and run commands without repeatedly asking. Do not turn on global auto-approval: that applies to every workspace. Only use session-level Allow all in your own new Codespace, read changes before committing them, never put passwords or API keys in chat or files, and do not use it in an unfamiliar or sensitive project. A school or work-managed account may disable this option.</p></details>
 
 ## 2. Plan before you build
 
